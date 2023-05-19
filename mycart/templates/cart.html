@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %}
+Cart
+{% endblock %}
+{% block css %}
+
+{% endblock %}
+
+{% block body %}
+{% for cart_product in get_cart_products %}
+<div class="card mb-3 m-5" style="max-width: 100vw;">
+
+  <div class="row g-0">
+    <div class="col-md-1">
+      <img src="/media/{{ cart_product.item.p_img }}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{ cart_product.item.p_name }}</h5>
+          <h5  id="price{{ cart_product.id }}" style="position:relative; left:1000px; bottom:30px;">Rs.{{ cart_product.item.p_price }}</h5>
+<!--        quantity-->
+          <div class="quantity">
+<!--              i wrote-->
+        <a href="/dec_quantity/{{ cart_product.id }}/"><input class="btn1" id="btn1{{ cart_product.id }}" type="button" value="-" style="border-radius:50%; border:none; margin:1px;"></a>
+        <input id="inp{{ cart_product.id }}" type="number" value="{{ cart_product.quantity }}" style="height: 30px; width: 50px; border-radius: 5px;border: 0.1px solid grey;">
+        <a href="/inc_quantity/{{ cart_product.id }}/"><input class="btn1" id="btn2{{ cart_product.id }}" onclick="inc_price()" type="button" value="+" style="border-radius:50%; border:none; margin:1px;"></a>
+    </div>
+<!--        end quantity-->
+<!--          button-->
+          <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                  <a href="/remove_cart_item/{{ cart_product.id  }}/"><button type="button" class="btn btn-danger my-1">Remove</button></a>
+                  <button type="button" class="btn btn-light border my-1">Buy Now</button>
+
+          </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!--button-->
+
+<!--js-->
+
+
+{% endfor %}
+
+
+{% endblock %}

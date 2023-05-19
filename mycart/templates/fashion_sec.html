@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block title %}
+Fashion Section
+{% endblock %}
+{% block css %}
+h2 button{
+   position:relative;
+   left:800px;
+}
+{% endblock %}
+{% block body %}
+
+{% for msg in messages %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+   <strong>{{ msg }}</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+<h2 style="margin:50px;">MENS FASHION <a href="/view_mens_products/{{ get_mens_product.0.id }}/"><button type="button" class="btn btn-outline-primary">Primary</button></a></h2>
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for mens_products in get_mens_product%}
+  <div class="col">
+    <div class="card">
+      <img src="/media/{{ mens_products.p_img }}" class="card-img-top" alt="..." height=300px>
+      <div class="card-body">
+        <h5 class="card-title">{{ mens_products.p_name }}</h5>
+        <h5 class="card-title">Rs.{{ mens_products.p_price }}</h5>
+        <p class="card-text">{{ mens_products.p_disc }}</p>
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+</div>
+
+  </div>
+</div>
+
+
+<!--womens section-->
+<h2 style="margin:50px;">WOMENS FASHION <a href="\view_womens_products/{{ get_womens_product.0.id }}\"><button type="button" class="btn btn-outline-primary">Primary</button></a></h2>
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for womens_products in get_womens_product%}
+  <div class="col">
+    <div class="card">
+      <img src="/media/{{ womens_products.p_img }}" class="card-img-top" alt="..." height=300px>
+      <div class="card-body">
+        <h5 class="card-title">{{ womens_products.p_name }}</h5>
+        <h5 class="card-title">Rs.{{ womens_products.p_price }}</h5>
+        <p class="card-text">{{ womens_products.p_disc }}</p>
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+</div>
+
+  </div>
+</div>
+
+<!--kids section-->
+<h2 style="margin:50px;">KIDS FASHION <a href="\view_kids_products/{{ get_kids_product.0.id }}\"><button type="button" class="btn btn-outline-primary">Primary</button></a></h2>
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for kids_products in get_kids_product%}
+  <div class="col">
+    <div class="card">
+      <img src="/media/{{ kids_products.p_img }}" class="card-img-top" alt="..." height=300px>
+      <div class="card-body">
+        <h5 class="card-title">{{ kids_products.p_name }}</h5>
+        <h5 class="card-title">Rs.{{ kids_products.p_price }}</h5>
+        <p class="card-text">{{ kids_products.p_disc }}</p>
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+</div>
+
+  </div>
+</div>
+{% endblock %}

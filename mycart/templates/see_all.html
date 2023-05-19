@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}
+see-{{ get_see_all_products.0.p_specification }}
+{% endblock %}
+{% block body %}
+
+{% for msg in messages %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+   <strong>{{ msg }}</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for see_all_products in get_see_all_products %}
+  <div class="col">
+    <div class="card" style="width: 18rem;">
+  <img src="/media/{{ see_all_products.p_img }}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{ see_all_products.p_name }}</h5>
+    <p class="card-text">Rs.{{ see_all_products.p_price }}</p>
+    <a href="/show/{{ see_all_products.id }}" class="btn btn-primary">View Detials</a>
+  </div>
+</div>
+</div>
+    {% endfor %}
+</div>
+{% endblock %}

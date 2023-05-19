@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block title %}
+show-{{ get_searched_product.0.p_name }}
+{% endblock %}
+
+{% block css %}
+
+
+
+{% endblock %}
+
+{% block body %}
+
+{% for msg in messages %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+   <strong>{{ msg }}</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+      {% for searched_product in get_searched_product %}
+      <img src="/media/{{ searched_product.p_img }}">
+
+    </div>
+    <div class="col-sm-4 mt-5">
+
+      <h1>{{ searched_product.p_name }}</h1>
+      <h3 style="color:green;">Rs.{{ searched_product.p_price }}</h3>
+      <p>{{ searched_product.p_disc }}</p>
+      <p style="color:blue;">{{ searched_product.p_cat}} >>{{ searched_product.p_sub_cat }}>>{{ searched_product.p_specification }}</p>
+
+
+    </div>
+
+
+  </div>
+
+</div>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+<!--      <input name="hidden" value="{{ searched_product.id }}" hidden>-->
+      <a href="/cart/{{ searched_product.id }}"><button class="btn btn-light col-12 border " type="button" style="font-size:30px;">Add to cart</button></a>
+    </div>
+    <div class="col">
+      <button class="btn btn-success col-12" type="button" style="font-size:30px;">Buy Now</button>
+    </div>
+  </div>
+{% endfor %}
+<!--  related searches-->
+  <div class="border bg-light mt-5">
+    <h1>You may also like <a href="/see_all/{{ get_similer_product.0.id }}"><button type="button" class="btn btn-outline-info" style="position:relative; left:55rem;">See All</button></a></h1>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  {% for similer_product in get_similer_product %}
+  <div class="col">
+    <div class="card h-100">
+      <img src="/media/{{ similer_product.p_img }}" class="card-img-top" alt="..." height=300rem>
+      <div class="card-body">
+        <h5 class="card-title">{{ similer_product.p_name}}</h5>
+        <p class="card-text">{{ similer_product.p_price }}</p>
+      </div>
+
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+
+
+
+
+  </div>
+{% endblock %}

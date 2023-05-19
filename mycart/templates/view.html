@@ -1,0 +1,296 @@
+{% extends 'base.html' %}
+{% block title %}
+{% if get_mens_product %}
+{{get_mens_product.0.p_sub_cat}}
+{% endif %}
+
+{% if get_womens_product %}
+{{get_womens_product.0.p_sub_cat}}
+{% endif %}
+
+{% if get_kids_product %}
+{{get_kids_product.0.p_sub_cat}}
+{% endif %}
+
+{% if get_mobile_product %}
+{{get_mobile_product.0.p_sub_cat}}
+{% endif %}
+
+{% if get_ipad_product %}
+{{get_ipad_product.0.p_sub_cat}}
+{% endif %}
+
+{% if get_laptop_product %}
+{{get_laptop_product.0.p_sub_cat}}
+{% endif %}
+
+{% if get_powerbank_product %}
+{{get_powerbank_product.0.p_sub_cat}}
+{% endif %}
+
+{% if get_watch_product %}
+{{get_watch_product.0.p_sub_cat}}
+{% endif %}
+
+{% if get_sunglass_product %}
+{{get_sunglass_product.0.p_sub_cat}}
+{% endif %}
+
+{% if get_earphone_product %}
+{{get_earphone_product.0.p_sub_cat}}
+{% endif %}
+
+{% if get_earring_product %}
+{{get_earring_product.0.p_sub_cat}}
+{% endif %}
+{% endblock %}
+
+{% block css %}
+.move{
+position:relative;
+left:500px;
+bottom:60px;
+}
+{% endblock %}
+
+{% block body %}
+
+{% for msg in messages %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+   <strong>{{ msg }}</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+<!--Mens section-->
+<div class="card-group">
+{% if get_mens_product %}
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for product in get_mens_product %}
+  <div class="col">
+    <div class="card">
+      <img src="/media/{{ product.p_img }}" class="card-img-top" alt="..." height=500px>
+      <div class="card-body">
+        <h5 class="card-title">{{ product.p_name }}</h5>
+        <p class="card-text">Rs.{{ product.p_price }}</p>
+        <a href="/show/{{ product.id }}/"><button class=" btn sm btn-primary move">View detials</button></a>
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+</div>
+{% endif %}
+</div>
+
+
+<!--Womens section-->
+<div class="card-group">
+{% if get_womens_product %}
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for product in get_womens_product %}
+  <div class="col">
+    <div class="card">
+      <img src="/media/{{ product.p_img }}" class="card-img-top" alt="..." height=450rem>
+      <div class="card-body">
+        <h5 class="card-title">{{ product.p_name }}</h5>
+        <p class="card-text">Rs.{{ product.p_price }}</p>
+        <a href="/show/{{ product.id }}/"><button class=" btn sm btn-primary move">View detials</button></a>
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+</div>
+{% endif %}
+</div>
+
+<!--kids -->
+
+<div class="card-group">
+{% if get_kids_product %}
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for product in get_kids_product %}
+  <div class="col">
+    <div class="card">
+      <img src="/media/{{ product.p_img }}" class="card-img-top" alt="..." height=500px>
+      <div class="card-body">
+        <h5 class="card-title">{{ product.p_name }}</h5>
+        <p class="card-text">Rs.{{ product.p_price }}</p>
+        <a href="/show/{{ product.id }}/"><button class=" btn sm btn-primary move">View detials</button></a>
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+</div>
+{% endif %}
+</div>
+
+<!--mobile -->
+<div class="card-group">
+{% if get_mobile_product %}
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for product in get_mobile_product %}
+  <div class="col">
+    <div class="card">
+      <img src="/media/{{ product.p_img }}" class="card-img-top" alt="..." height=500px>
+      <div class="card-body">
+        <h5 class="card-title">{{ product.p_name }}</h5>
+        <p class="card-text">Rs.{{ product.p_price }}</p>
+        <a href="/show/{{ product.id }}/"><button class=" btn sm btn-primary move">View detials</button></a>
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+</div>
+{% endif %}
+</div>
+
+<!--ipad-->
+<div class="card-group">
+{% if get_ipad_product %}
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for product in get_ipad_product %}
+  <div class="col">
+    <div class="card">
+      <img src="/media/{{ product.p_img }}" class="card-img-top" alt="..." height=500px>
+      <div class="card-body">
+        <h5 class="card-title">{{ product.p_name }}</h5>
+        <p class="card-text">Rs.{{ product.p_price }}</p>
+        <a href="/show/{{ product.id }}/"><button class=" btn sm btn-primary move">View detials</button></a>
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+</div>
+{% endif %}
+</div>
+
+
+<!--laptop-->
+<div class="card-group">
+{% if get_laptop_product %}
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for product in get_laptop_product %}
+  <div class="col">
+    <div class="card">
+      <img src="/media/{{ product.p_img }}" class="card-img-top" alt="..." height=500px>
+      <div class="card-body">
+        <h5 class="card-title">{{ product.p_name }}</h5>
+        <p class="card-text">Rs.{{ product.p_price }}</p>
+        <a href="/show/{{ product.id }}/"><button class=" btn sm btn-primary move">View detials</button></a>
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+</div>
+{% endif %}
+</div>
+
+<!--powerbank -->
+
+<div class="card-group">
+{% if get_power_bank_product %}
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for product in get_power_bank_product %}
+  <div class="col">
+    <div class="card">
+      <img src="/media/{{ product.p_img }}" class="card-img-top" alt="..." height=500px>
+      <div class="card-body">
+        <h5 class="card-title">{{ product.p_name }}</h5>
+        <p class="card-text">Rs.{{ product.p_price }}</p>
+        <a href="/show/{{ product.id }}/"><button class=" btn sm btn-primary move">View detials</button></a>
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+</div>
+{% endif %}
+</div>
+
+
+<!--watch -->
+<div class="card-group">
+{% if get_watch_product %}
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for product in get_watch_product %}
+  <div class="col">
+    <div class="card">
+      <img src="/media/{{ product.p_img }}" class="card-img-top" alt="..." height=450rem>
+      <div class="card-body">
+        <h5 class="card-title">{{ product.p_name }}</h5>
+        <p class="card-text">Rs.{{ product.p_price }}</p>
+        <a href="/show/{{ product.id }}/"><button class=" btn sm btn-primary move">View detials</button></a>
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+</div>
+{% endif %}
+</div>
+
+<!--sunglass-->
+<div class="card-group">
+{% if get_sunglass_product %}
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for product in get_sunglass_product %}
+  <div class="col">
+    <div class="card">
+      <img src="/media/{{ product.p_img }}" class="card-img-top" alt="..." height=500px>
+      <div class="card-body">
+        <h5 class="card-title">{{ product.p_name }}</h5>
+        <p class="card-text">Rs.{{ product.p_price }}</p>
+        <a href="/show/{{ product.id }}/"><button class=" btn sm btn-primary move">View detials</button></a>
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+</div>
+{% endif %}
+</div>
+
+
+<!--earphone-->
+<div class="card-group">
+{% if get_earphone_product %}
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for product in get_earphone_product %}
+  <div class="col">
+    <div class="card">
+      <img src="/media/{{ product.p_img }}" class="card-img-top" alt="..." height=500px>
+      <div class="card-body">
+        <h5 class="card-title">{{ product.p_name }}</h5>
+        <p class="card-text">Rs.{{ product.p_price }}</p>
+        <a href="/show/{{ product.id }}/"><button class=" btn sm btn-primary move">View detials</button></a>
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+</div>
+{% endif %}
+</div>
+
+<!--earring -->
+
+<div class="card-group">
+{% if get_earring_product %}
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for product in get_earring_product %}
+  <div class="col">
+    <div class="card">
+      <img src="/media/{{ product.p_img }}" class="card-img-top" alt="..." height=500px>
+      <div class="card-body">
+        <h5 class="card-title">{{ product.p_name }}</h5>
+        <p class="card-text">Rs.{{ product.p_price }}</p>
+        <a href="/show/{{ product.id }}/"><button class=" btn sm btn-primary move">View detials</button></a>
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+</div>
+{% endif %}
+</div>
+
+{% endblock %}
+
+
+
+
+

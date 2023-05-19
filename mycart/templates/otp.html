@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}
+Mobile No-Verification
+{% endblock %}
+{% block body %}
+
+<!--otp verify-->
+{% for msg in messages %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+   <strong>{{ msg }}</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+<form  class="mt-5" method="post" action="/accounts/otp/{{ semail }}/">{% csrf_token %}
+<div class="input-group mt-5">
+   <marquee behavior="slide" direction="left"> <h1>We have sent a otp to your registered mobile no.</h1></marquee>
+  <input name="otp" type="number" class="form-control" placeholder="Enter OTP" aria-label="Recipient's username with two button addons">
+  <button class="btn btn-outline-secondary" type="submit">Submit</button>
+
+</div>
+</form>
+{% endblock %}

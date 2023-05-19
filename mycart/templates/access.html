@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% block title %}
+Accessories Section
+{% endblock %}
+{% block body %}
+
+{% for msg in messages %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+   <strong>{{ msg }}</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+<!--Accessories devices-->
+<!--watch section-->
+<h2 style="margin:50px;">WATCHES <a href="/view_watch_products/{{ get_watch_product.0.id }}/"><button type="button" class="btn btn-outline-primary">Primary</button></a></h2>
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for watch_product in get_watch_product%}
+  <div class="col">
+    <div class="card">
+      <img src="/media/{{ watch_product.p_img }}" class="card-img-top" alt="..." height=300px>
+      <div class="card-body">
+        <h5 class="card-title">{{ watch_product.p_name }}</h5>
+        <h5 class="card-title">Rs.{{ watch_product.p_price }}</h5>
+        <p class="card-text">{{ watch_product.p_disc }}</p>
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+</div>
+
+  </div>
+</div>
+
+<!--GLASSES section-->
+<h2 style="margin:50px;">SUNGLASSES <a href="/view_sunglass_products/{{ get_sunglass_product.0.id }}/"><button type="button" class="btn btn-outline-primary">Primary</button></a></h2>
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for sunglass_product in get_sunglass_product%}
+  <div class="col">
+    <div class="card">
+      <img src="/media/{{ sunglass_product.p_img }}" class="card-img-top" alt="..." height=300px>
+      <div class="card-body">
+        <h5 class="card-title">{{ sunglass_product.p_name }}</h5>
+        <h5 class="card-title">Rs.{{ sunglass_product.p_price }}</h5>
+        <p class="card-text">{{ sunglass_product.p_disc }}</p>
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+</div>
+
+  </div>
+</div>
+
+<!-EARPHONES section-->
+<h2 style="margin:50px;">EARPHONES <a href="/view_earphone_products/{{ get_earphone_product.0.id }}/"><button type="button" class="btn btn-outline-primary">Primary</button></a></h2>
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for earphone_product in get_earphone_product%}
+  <div class="col">
+    <div class="card">
+      <img src="/media/{{ earphone_product.p_img }}" class="card-img-top" alt="..." height=300px>
+      <div class="card-body">
+        <h5 class="card-title">{{ earphone_product.p_name }}</h5>
+        <h5 class="card-title">Rs.{{ earphone_product.p_price }}</h5>
+        <p class="card-text">{{ earphone_product.p_disc }}</p>
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+</div>
+
+  </div>
+</div>
+
+<!--EAR RINGS section-->
+<h2 style="margin:50px;">EAR RINGS  <a href="/view_earring_products/{{ get_earring_product.0.id }}/"><button type="button" class="btn btn-outline-primary">Primary</button></a></h2>
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for earring_product in get_earring_product%}
+  <div class="col">
+    <div class="card">
+      <img src="/media/{{ earring_product.p_img }}" class="card-img-top" alt="..." height=300px>
+      <div class="card-body">
+        <h5 class="card-title">{{ earring_product.p_name }}</h5>
+        <h5 class="card-title">Rs.{{ earring_product.p_price }}</h5>
+        <p class="card-text">{{ earring_product.p_disc }}</p>
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+</div>
+
+  </div>
+</div>
+{% endblock %}

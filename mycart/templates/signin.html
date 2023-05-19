@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}
+Sign-In
+{% endblock %}
+{% block body %}
+{% for msg in messages %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+   <strong>{{ msg }}</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+<!--******signin*****-->
+
+<form class="mt-5" method="post" action="/accounts/signin/">{% csrf_token %}
+    <h1>SIGN-IN</h1>
+  <div class="mb-3">
+      <div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">@</span>
+  <input  name="sname" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+</div>
+      <div class="form-floating mb-3">
+  <input name="semail" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+  <label for="floatingInput">Email address</label>
+  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+</div>
+      <div>
+    <label for="exampleInputEmail1" class="form-label">Mobile No.</label>
+    <input name="smbno" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input name="spass1" type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+    <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+    <input name="spass2" type="password" class="form-control" id="exampleInputPassword2">
+  </div>
+  <button type="submit" class="btn btn-primary">Sign-In</button> Already have an account?<a href="/accounts/login/">Login</a>
+  </div>
+</form>
+{% endblock %}

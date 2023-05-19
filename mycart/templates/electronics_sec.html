@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% block title %}
+Electronics Section
+{% endblock %}
+{% block body %}
+
+{% for msg in messages %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+   <strong>{{ msg }}</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+<!--electronics devices-->
+<!--mobile section-->
+<h2 style="margin:50px;">MOBILES <a href="/view_mobile_products/{{ get_mobile_product.0.id }}/"><button type="button" class="btn btn-outline-primary">Primary</button></a></h2>
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for mobile_product in get_mobile_product%}
+  <div class="col">
+    <div class="card">
+      <img src="/media/{{ mobile_product.p_img }}" class="card-img-top" alt="..." height=300px>
+      <div class="card-body">
+        <h5 class="card-title">{{ mobile_product.p_name }}</h5>
+        <h5 class="card-title">Rs.{{ mobile_product.p_price }}</h5>
+        <p class="card-text">{{ mobile_product.p_disc }}</p>
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+</div>
+
+  </div>
+</div>
+
+<!--ipad section-->
+<h2 style="margin:50px;">IPAD <a href="/view_ipad_products/{{ get_ipad_product.0.id }}/"><button type="button" class="btn btn-outline-primary">Primary</button></a></h2>
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for ipad_product in get_ipad_product%}
+  <div class="col">
+    <div class="card">
+      <img src="/media/{{ ipad_product.p_img }}" class="card-img-top" alt="..." height=300px>
+      <div class="card-body">
+        <h5 class="card-title">{{ ipad_product.p_name }}</h5>
+        <h5 class="card-title">Rs.{{ ipad_product.p_price }}</h5>
+        <p class="card-text">{{ ipad_product.p_disc }}</p>
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+</div>
+
+  </div>
+</div>
+
+<!--LAPTOP section-->
+<h2 style="margin:50px;">LAPTOPS <a href="/view_laptop_products/{{ get_laptop_product.0.id }}/"><button type="button" class="btn btn-outline-primary">Primary</button></a></h2>
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for laptop_product in get_laptop_product%}
+  <div class="col">
+    <div class="card">
+      <img src="/media/{{ laptop_product.p_img }}" class="card-img-top" alt="..." height=300px>
+      <div class="card-body">
+        <h5 class="card-title">{{ laptop_product.p_name }}</h5>
+        <h5 class="card-title">Rs.{{ laptop_product.p_price }}</h5>
+        <p class="card-text">{{ laptop_product.p_disc }}</p>
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+</div>
+
+  </div>
+</div>
+
+<!--power bank section-->
+<h2 style="margin:50px;">POWER BANKS <a href="/view_power_bank_products/{{ get_power_bank_product.0.id }}/"><button type="button" class="btn btn-outline-primary">Primary</button></a></h2>
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for power_bank_product in get_power_bank_product%}
+  <div class="col">
+    <div class="card">
+      <img src="/media/{{ power_bank_product.p_img }}" class="card-img-top" alt="..." height=300px>
+      <div class="card-body">
+        <h5 class="card-title">{{ power_bank_product.p_name }}</h5>
+        <h5 class="card-title">Rs.{{ power_bank_product.p_price }}</h5>
+        <p class="card-text">{{ power_bank_product.p_disc }}</p>
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+</div>
+
+  </div>
+</div>
+{% endblock %}

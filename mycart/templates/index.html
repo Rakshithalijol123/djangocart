@@ -1,0 +1,224 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+   MyCart
+{% endblock %}
+
+{% block css %}
+h1 button{
+   position:relative;
+   left:800px;
+}
+.b{border-top:1px solid lightgrey;}
+.background{
+            margin:10px;
+            background-color:AliceBlue;
+            border:1px solid black;
+            border-radius:5px;
+}
+
+.background1{
+            margin:10px;
+            background-color:MintCream;
+            border:1px solid black;
+            border-radius:5px;
+}
+
+.background2{
+            margin:10px;
+            background-color:WhiteSmoke;
+            border:1px solid black;
+            border-radius:5px;
+}
+
+.background3{
+            margin:10px;
+            background-color:LightGray;
+            border:1px solid black;
+            border-radius:5px;
+}
+{% endblock %}
+
+{% block body %}
+{% for msg in messages %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+   <strong>{{ msg }}</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+
+<!--slides-->
+
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'images/fashion.jpeg' %}" class="d-block w-100" alt="..." height=650px>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/electronic.jpeg' %}" class="d-block w-100" alt="..." height=650px>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Second slide label</h5>
+        <p>Some representative placeholder content for the second slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/fashion.jpeg' %}" class="d-block w-100" alt="..." height=650px>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<!-- suggestions--><br><br><br>
+{% if user.is_authenticated %}
+<div class="background">
+<h1 style="margin:10px;">Suggestions for you.<button type="button" class="btn btn-outline-primary">View All</button></h1>
+<div class="suggest" style="margin:100px;">
+
+
+  <div class="side">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      {% for product in get_suggestion_product %}
+  <div class="col">
+
+    <div class="card">
+      <a href="/show/{{ product.id }}/"><img src="/media/{{ product.item.p_img }}" class="card-img-top" alt="..." height=400px></a>
+      <div class="card-body">
+        <h5 class="card-title">{{ product.item.p_name }}</h5>
+        <h5 class="card-title" style="position:relative; left:450px;">Rs.{{ product.item.p_price }}</h5>
+        <p class="card-text">{{ product.item.p_disc }}</p>
+
+      </div>
+
+    </div>
+
+  </div>
+      {% endfor %}
+  </div>
+  </div>
+
+</div>
+</div>
+{% endif %}
+
+<!--fashion-->
+<div class="background1">
+  <h1 class="b">Fashions <a href="/fashion_section/"><button type="button" class="btn btn-outline-primary">View All</button></a></h1>
+<div class="suggest" style="margin:100px;">
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for fashion_products in get_fashion_products %}
+  <div class="col">
+    <div class="card">
+      <a href="/show/{{ fashion_products.id }}/"><img src="/media/{{ fashion_products.p_img }}" class="card-img-top" alt="..." height=400px></a>
+      <div class="card-body">
+        <h5 class="card-title">{{ fashion_products.p_name }}</h5>
+        <h5 class="card-text">{{ fashion_products.p_price }}</h5>
+        <p class="card-text">{{ fashion_products.p_disc }}</p>
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+  </div>
+</div>
+
+</div>
+</div>
+</div>
+
+<!--electronics devices-->
+<div class="background2">
+<h1 class="b">Electronic devices <a href="/electronics_section/"><button type="button" class="btn btn-outline-primary">View All</button></a></h1>
+<div class="suggest" style="margin:100px;">
+
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for electronics_products in get_electronics_products %}
+  <div class="col">
+    <div class="card">
+      <a href="/show/{{ electronics_products.id }}/"><img src="/media/{{ electronics_products.p_img }}" class="card-img-top" alt="..." height=400px></a>
+      <div class="card-body">
+        <h5 class="card-title">{{ electronics_products.p_name }}</h5>
+        <h5 class="card-text">{{ electronics_products.p_price }}</h5>
+        <p class="card-text">Rs.{{ electronics_products.p_disc }}</p>
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+  </div>
+</div>
+
+</div>
+</div>
+</div>
+
+<!--Groceries-->
+<div class="background3">
+<h1 class="b">Accessories <a href="/accessory_section/"><button type="button" class="btn btn-outline-primary">View All</button></a></h1>
+<div class="suggest" style="margin:100px;">
+
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for accesories in get_access_products %}
+  <div class="col">
+    <div class="card">
+      <a href="/show/{{ accesories.id }}/"><img src="/media/{{ accesories.p_img }}" class="card-img-top" alt="..." height=400px></a>
+      <div class="card-body">
+        <h5 class="card-title">{{ accesories.p_name }}</h5>
+        <h5 class="card-title">{{ accesories.p_price }}</h5>
+        <p class="card-text">{{ accesories.p_disc }}</p>
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+  </div>
+</div>
+</div>
+
+
+
+<!--recently searched-->
+<!--user login irbek-->
+<h1 class="b">Recently Searched <button type="button" class="btn btn-outline-primary">View All</button></h1>
+<div class="card-group">
+  <div class="card">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+</div>
+{% endblock %}
